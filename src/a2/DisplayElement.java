@@ -1,5 +1,6 @@
 package a2;
 
 public interface DisplayElement {
-   // display medoth declaration goes here
+   // display method declaration goes here
+	public void display(double q);
 }

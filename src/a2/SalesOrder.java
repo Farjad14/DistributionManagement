@@ -6,4 +6,16 @@ public class SalesOrder implements Observer, DisplayElement {
 		// TODO Auto-generated constructor stub
 	}
 	// Your code for SalesOrder class goes here
+
+	@Override
+	public void display(double q) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(double availQty, double ordQty) {
+		// TODO Auto-generated method stub
+		
+	}
 }

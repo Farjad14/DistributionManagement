@@ -1,6 +1,11 @@
 package a2;
 
 public class ProductionOrder implements Observer, DisplayElement {
+	
+	private int orderSequence;
+	protected int ID;
+	protected double minQuantity;
+	protected int inventory;
 
 	public ProductionOrder(int i, Inventory flowerInv) {
 		// TODO Auto-generated constructor stub
@@ -17,5 +22,9 @@ public class ProductionOrder implements Observer, DisplayElement {
 	public void update(double availQty, double ordQty) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public String toString(){
+		return null;
 	}
 }

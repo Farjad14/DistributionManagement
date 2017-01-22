@@ -4,10 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Inventory implements Observable {
-
-		 Inventory(Product flower) {
-		// TODO Auto-generated constructor stub
-	}
+		protected ArrayList<Observer> observers;
+		protected Product product;
+		protected double availableQuantity;
+		protected double backorderedQuantity;
+		
+		public Inventory(Product flower) {
+		}
+		
+		protected void updateQuantities(double stock, double backord){
+			
+		}
 
 		@Override
 		public void registerObserver(Observer o) {
@@ -21,9 +28,15 @@ public class Inventory implements Observable {
 			
 		}
 
+
 		@Override
-		public void notifyObserver(Observer o) {
+		public void notifyObserver() {
 			// TODO Auto-generated method stub
+			
+		}
+		
+		public String toString(){
+			return null;
 			
 		}
 

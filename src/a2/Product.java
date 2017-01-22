@@ -2,35 +2,19 @@ package a2;
 
 public class Product {
 	
-	private int ID;
-	private String name;
+	protected int ID;
+	protected String name;
 
 	public Product(int ID, String name) {
-		this.setID(ID);
-		this.setName(name);
+		this.ID = ID;
+		this.name = name;
 	}
-
-	public int getID() {
-		return ID;
-	}
-
-	public void setID(int iD) {
-		ID = iD;
-	}
-
-	/**
-	 * @return the name
-	 */
-	public String getName() {
+	
+	public String toString(){
 		return name;
 	}
 
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
+	
 	
 	// Your code for the product class goes here
 }

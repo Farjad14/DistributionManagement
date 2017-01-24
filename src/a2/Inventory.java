@@ -9,7 +9,8 @@ public class Inventory implements Observable {
 		protected double availableQuantity;
 		protected double backorderedQuantity;
 		
-		public Inventory(Product flower) {
+		public Inventory(Product product) {
+			this.product = product;
 		}
 		
 		protected void updateQuantities(double stock, double backord){

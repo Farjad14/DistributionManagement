@@ -11,10 +11,6 @@ public class Product {
 	}
 	
 	public String toString(){
-		return name;
+		return ID + " " + name;
 	}
-
-	
-	
-	// Your code for the product class goes here
 }

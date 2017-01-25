@@ -2,25 +2,40 @@ package a2;
 
 public class ProductionOrder implements Observer, DisplayElement {
 	
-	private int orderSequence;
+	private static int orderSequence;
 	protected int ID;
 	protected double minQuantity;
-	protected int inventory;
+	protected Observable inventory;
 
-	public ProductionOrder(int i, Inventory flowerInv) {
-		// TODO Auto-generated constructor stub
+	public ProductionOrder(int minQuantity, Observable inventory) {
+		//Setup
+		this.minQuantity = (double)minQuantity;
+		this.inventory = inventory;
+		//New order
+		orderSequence++;
+		this.ID = orderSequence;
+		//Register the order
+		inventory.registerObserver(this);
+		//Get updated stock
+		this.update(((Inventory)inventory).availableQuantity, ((Inventory)inventory).backorderedQuantity);
 	}
-	// Your code for the ProductionOrder class goes here
 
 	@Override
-	public void display(double q) {
-		// TODO Auto-generated method stub
-		
+	public void display(double dispQty) {
+		System.out.println("Production Order# "+ this.ID +" , item "
+				+ ((Inventory)inventory).product.name + " , produced "
+				+ dispQty);
 	}
 
 	@Override
 	public void update(double availQty, double ordQty) {
-		// TODO Auto-generated method stub
+		double stock = ordQty - availQty;
+		//If we have enough stock, update the inventory
+		if(stock>=minQuantity){
+			((Inventory)inventory).updateQuantities(((Inventory)inventory).availableQuantity + stock, 
+					((Inventory)inventory).backorderedQuantity);
+		}
+		
 		
 	}
 	

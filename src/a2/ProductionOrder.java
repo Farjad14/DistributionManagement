@@ -29,10 +29,10 @@ public class ProductionOrder implements Observer, DisplayElement {
 
 	@Override
 	public void update(double availQty, double ordQty) {
-		double stock = ordQty - availQty;
-		//If we have enough stock, update the inventory
-		if(stock>=minQuantity){
-			((Inventory)inventory).updateQuantities(((Inventory)inventory).availableQuantity + stock, 
+		double demand = ordQty - availQty;
+		if(demand>=minQuantity){
+			//We need to make more product
+			((Inventory)inventory).updateQuantities(((Inventory)inventory).availableQuantity + demand, 
 					((Inventory)inventory).backorderedQuantity);
 		}
 		
@@ -40,6 +40,7 @@ public class ProductionOrder implements Observer, DisplayElement {
 	}
 	
 	public String toString(){
-		return null;
+		return "PO" + this.ID + " " + ((Inventory)inventory).product.name 
+				+ " " + minQuantity;
 	}
 }

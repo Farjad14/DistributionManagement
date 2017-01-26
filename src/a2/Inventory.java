@@ -26,8 +26,8 @@ public class Inventory implements Observable {
 		@Override
 		public void registerObserver(Observer o) {
 			if(o != null){
-				if(!observers.contains(o)){
-					observers.add(o);
+				if(!this.observers.contains(o)){
+					this.observers.add(o);
 				}
 			}
 			
@@ -36,8 +36,8 @@ public class Inventory implements Observable {
 		@Override
 		public void removeObserver(Observer o) {
 			if(o != null){
-				if(observers.contains(o)){
-					observers.remove(o);
+				if(this.observers.contains(o)){
+					this.observers.remove(o);
 				}
 			}
 			
@@ -46,8 +46,9 @@ public class Inventory implements Observable {
 
 		@Override
 		public void notifyObserver() {
-			for(Observer o : observers){
-				o.update(this.availableQuantity, this.backorderedQuantity);
+			for(int i=0;i<this.observers.size();i++){
+				Observer obs = this.observers.get(i);
+				obs.update(this.availableQuantity, this.backorderedQuantity);
 			}
 			
 			

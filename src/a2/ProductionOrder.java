@@ -16,7 +16,7 @@ public class ProductionOrder implements Observer, DisplayElement {
 		this.ID = orderSequence;
 		//Register the order
 		inventory.registerObserver(this);
-		//Get updated stock
+		//Update the stock
 		this.update(((Inventory)inventory).availableQuantity, ((Inventory)inventory).backorderedQuantity);
 	}
 
